@@ -5,7 +5,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 import ipdb
 
-data_dir = '/tmp/tensorflow/mnist/input_data'
+data_dir = './mnist_dataset'
 mnist = input_data.read_data_sets(data_dir, one_hot=True)
 ipdb.set_trace()
 
