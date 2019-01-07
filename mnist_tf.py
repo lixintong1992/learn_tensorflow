@@ -7,7 +7,7 @@ import ipdb
 
 data_dir = './mnist_dataset'
 mnist = input_data.read_data_sets(data_dir, one_hot=True)
-ipdb.set_trace()
+# ipdb.set_trace()
 
 if __name__ == '__main__':
     x = tf.placeholder(tf.float32, [None, 784])
@@ -27,6 +27,8 @@ if __name__ == '__main__':
         batch_xs, batch_ys = mnist.train.next_batch(100)
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
     
+    ipdb.set_trace()
     correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     print(sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
+    sess.close()
